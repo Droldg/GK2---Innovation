@@ -1,2 +1,2 @@
 # GK2---Innovation
-Godkendelsesopgave 1 - Innovation og ny teknologi
+Godkendelsesopgave 2 - Innovation og ny teknologi
