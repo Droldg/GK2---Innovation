@@ -100,5 +100,16 @@ helperText:{ color: "#6B7280", fontSize: 12 },
   filterText: { color: "#111827", fontWeight: "600", fontSize: 12 },
   filterTextActive: { color: "#fff" },
 
+input: {
+  borderWidth: 1,
+  borderColor: palette.border,
+  borderRadius: 10,
+  paddingHorizontal: 12,
+  height: 44,
+  backgroundColor: "#fff",
+  marginBottom: 10,
+},
+
+
 
 });

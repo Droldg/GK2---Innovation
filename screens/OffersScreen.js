@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import { View, Text, FlatList, Pressable, Platform } from "react-native";
-import styles from "../styles";
+import styles from "../style/styles";
 
 // Simulerede tilbud, for at vise funktionaliteten. 
 const seedOffers = [
