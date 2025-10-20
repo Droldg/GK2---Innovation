@@ -2,27 +2,46 @@
 import { StyleSheet } from "react-native";
 
 const palette = {
-  bg: "#F7F7FB",
+  // Brand
+  primary: "#1D6142",          // Green Pea – primær CTA
+  primaryHover: "#144933",     // Forest – pressed/hover
+  secondary: "#FF9A8A",        // Peachy Pink – sekundær CTA/badges
+  secondaryHover: "#FF7F6A",   // Peach hover
+
+  // Backgrounds
+  bgCream: "#FFF4E9",          // Cream baggrund/flader
+  bgSage: "#E6F0EC",           // Sage tint (subtle sektioner)
+  bgSubtle: "#F6F7F7",
+
+  // Neutrals
+  title: "#111111",            // Neutral-900 – titler/kontrast
+  text: "#374151",             // Ink – brødtekst
+  muted: "#9CA3AF",            // Neutral-400 – sekundær tekst
   card: "#FFFFFF",
   border: "#E5E7EB",
-  text: "#111827",
-  muted: "#6B7280",
-  primary: "#2563EB", 
-  success: "#059669",
-  danger: "#DC2626",
+
+  // Semantics
+  info: "#1B8A7D",             // Teal – links/info
+  warning: "#FDB022",          // Amber
+  error: "#D33A2C",            // Coral
+  errorTint: "#FDECEA",
 };
 
 export default StyleSheet.create({
-  // Layout og tekst
-  container: { flex: 1, padding: 16, backgroundColor: palette.bg },
-  title: { fontSize: 24, fontWeight: "800", color: palette.text, marginBottom: 12 },
+  // Layout & tekst
+  container: { flex: 1, padding: 16, backgroundColor: palette.bgCream },
+  title: { fontSize: 24, fontWeight: "800", color: palette.title, marginBottom: 12 },
+  emptyContainer: { justifyContent: "center", paddingHorizontal: 24 },
+  headerBlock: { marginBottom: 12 },
+  listContent: { paddingBottom: 24 },
+  separator10: { height: 10 },
 
-  // Home Typografien
-  appTitle: { fontSize: 28, fontWeight: "800", color: "#111827", marginBottom: 4 },
-  subtitle: { color: "#6B7280", marginBottom: 12 },
-  helperText: { color: "#6B7280", fontSize: 12 },
+  // Home typografi
+  appTitle: { fontSize: 28, fontWeight: "800", color: palette.title, marginBottom: 4 },
+  subtitle: { color: palette.muted, marginBottom: 12 },
+  helperText: { color: palette.muted, fontSize: 12 },
 
-  // Kort til tilbud
+  // Kort
   card: {
     backgroundColor: palette.card,
     borderRadius: 14,
@@ -35,7 +54,8 @@ export default StyleSheet.create({
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 2 },
   },
-  cardTitle: { fontSize: 18, fontWeight: "700", color: palette.text, marginBottom: 6 },
+  cardRow: { flexDirection: "row", gap: 12 },
+  cardTitle: { fontSize: 18, fontWeight: "700", color: palette.title, marginBottom: 6 },
   cardLine: { color: palette.muted, marginBottom: 2 },
 
   // Knapper
@@ -50,14 +70,17 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   buttonText: { color: "#fff", fontWeight: "700" },
+  btnDisabled: { backgroundColor: "#E5E7EB" }, // lys grå baggrund
+  btnDisabledText: { color: "#9CA3AF", fontWeight: "700" }, // grå tekst
 
-  // Badges
+  // Badges (sekundær som default)
   badge: {
     paddingHorizontal: 10,
     height: 26,
     borderRadius: 26,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: palette.secondary,
   },
   badgeText: { color: "#fff", fontWeight: "700", fontSize: 12 },
 
@@ -71,9 +94,9 @@ export default StyleSheet.create({
     borderColor: palette.border,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FAFAFA",
+    backgroundColor: palette.bgSage,
   },
-  chipText: { color: palette.muted, fontSize: 12 },
+  chipText: { color: palette.text, fontSize: 12 },
 
   // Layout-rækker
   row: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
@@ -91,10 +114,10 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   filterBtnActive: {
-    backgroundColor: "#111827",
-    borderColor: "#111827",
+    backgroundColor: palette.title,
+    borderColor: palette.title,
   },
-  filterText: { color: "#111827", fontWeight: "600", fontSize: 12 },
+  filterText: { color: palette.title, fontWeight: "600", fontSize: 12 },
   filterTextActive: { color: "#fff" },
 
   // Input
@@ -106,6 +129,7 @@ export default StyleSheet.create({
     height: 44,
     backgroundColor: "#fff",
     marginBottom: 10,
+    color: palette.text,
   },
 
   // --- Auth Screens (Login/Signup) ---
@@ -113,7 +137,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: palette.bg,
+    backgroundColor: palette.bgCream,
     padding: 24,
   },
   authCard: {
@@ -142,13 +166,12 @@ export default StyleSheet.create({
     fontSize: 14,
   },
 
-
-    // --- Info skærmen ---
+  // --- Info skærmen ---
   infoContainer: {
     flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: palette.bg,
+    backgroundColor: palette.bgCream,
     padding: 24,
   },
 
@@ -161,12 +184,12 @@ export default StyleSheet.create({
     shadowOpacity: 0.06,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 4 },
-    marginVertical: 40, // giver luft over og under kortet
+    marginVertical: 40,
   },
 
   infoText: {
     fontSize: 15,
-    color: "#374151",
+    color: palette.text,
     lineHeight: 22,
     marginBottom: 12,
     textAlign: "justify",
@@ -174,10 +197,45 @@ export default StyleSheet.create({
 
   infoHighlight: {
     fontSize: 16,
-    color: "#2563EB",
+    color: palette.primary,
     fontWeight: "700",
     textAlign: "center",
     marginTop: 12,
   },
+  btn: {
+    height: 44,
+    borderRadius: 10,
+    paddingHorizontal: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  btnFull: { width: "100%" },
 
+  // Primary
+  btnPrimary: { backgroundColor: palette.primary },
+  btnPrimaryPressed: { opacity: 0.9 },
+  btnPrimaryText: { color: "#fff", fontWeight: "700" },
+
+  // Secondary (Peachy Pink)
+  btnSecondary: { backgroundColor: palette.secondary },
+  btnSecondaryPressed: { opacity: 0.9 },
+  btnSecondaryText: { color: "#fff", fontWeight: "700" },
+
+  // Outline / Neutral
+  btnOutline: {
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: palette.border,
+  },
+  btnOutlinePressed: { backgroundColor: palette.bgSubtle },
+  btnOutlineText: { color: palette.title, fontWeight: "700" },
+
+  // Spacing helper
+  v8: { height: 8 },
+  v16: { height: 16 },
+  imageThumb: { width: 72, height: 72, borderRadius: 10 },
 });
+
+
+
