@@ -10,7 +10,7 @@ export default function InfoScreen() {
         <Text style={styles.title}>Om MadRedder</Text>
 
         <Text style={styles.infoText}>
-          MadRedder hjælper med at <Text style={{ fontWeight: "700" }}>reducere madspild</Text> 
+          MadRedder hjælper med at <Text style={{ fontWeight: "700" }}>reducere madspild </Text> 
           i virksomheders kantiner ved at gøre overskudsmad synlig og let at reservere.
         </Text>
 
